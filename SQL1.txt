@@ -1,0 +1,111 @@
+==============================================================================
+	SQL 1 Mini
+==============================================================================
+SELECT AVG(milliseconds) FROM track;
+
+SELECT COUNT(*) FROM invoice;
+
+SELECT firstname 
+	FROM customer
+    WHERE firstname
+    LIKE '%a%';
+    
+SELECT name, milliseconds 
+	FROM track 
+    ORDER BY milliseconds DESC
+    LIMIT 10;
+
+SELECT name, milliseconds 
+	FROM track
+    ORDER BY milliseconds ASC
+    LIMIT 20;
+    
+SELECT * FROM customer
+	WHERE state = 'CA'
+    OR state = 'WA';
+    
+SELECT * FROM customer 
+	WHERE state 
+    IN ('CA', 'WA', 'UT', 'FL', 'AZ');
+    
+INSERT INTO artist (name) 
+	VALUES ('Jackson Pollock');
+    
+SELECT * FROM artist;
+
+INSERT INTO customer (
+    firstname, lastname, company, address, city,
+    state, country, postalcode, phone, fax, email
+  ) VALUES (
+    'Mauricio', 'Flores', 'DevMountain', '500 S Ervay',
+    'DALLAS', 'TX', 'USA', '75201', '555-555-5555',
+    '123-456-7890', 'mauricio@example.com'
+  );
+  
+SELECT * FROM playlist WHERE name LIKE 'Classical%';
+
+
+==============================================================================
+	SQL 1 Afternoon
+==============================================================================
+
+ CREATE TABLE person (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   name VARCHAR(255),
+   age INTEGER,
+   height FLOAT,
+   city VARCHAR(255),
+   favoritecolor VARCHAR(255)
+ );
+ 
+ INSERT INTO person (
+   name, age, height, city, favoritecolor
+ ) VALUES (
+   'Eric', 18, 1.76, 'Point Place', 'blue'
+ ), (
+ 	'Donna', 17, 1.78, 'Madison', 'orange'
+ ), (
+ 	'Fez', 16, 1.68, 'Quinaubfjg', 'purple'
+ ), (
+ 	'Hyde', 18, 1.78, 'Point Place', 'green'
+ ), (
+ 	'Kelso', 17, 1.82, 'Chicago', 'yellow'
+ );
+ 
+ SELECT * FROM person 
+ 	ORDER BY height DESC;
+    
+SELECT * FROM person
+	ORDER BY height ASC;
+    
+SELECT * FROM person
+	ORDER BY age DESC;
+    
+SELECT * FROM person
+	WHERE age > 20;
+    
+SELECT * FROM person WHERE age = 18;
+
+SELECT * FROM person
+	WHERE age < 20 OR age > 30;
+    
+SELECT * FROM person WHERE age != 27;
+
+SELECT * FROM person 
+	WHERE favoritecolor != 'red';
+
+SELECT * FROM person
+	WHERE favoritecolor != 'red'
+    AND favoritecolor != 'blue';
+    
+SELECT * FROM person
+	WHERE favoritecolor = 'orange'
+    OR favoritecolor = 'green';
+    
+SELECT * FROM person
+	WHERE favoritecolor
+    IN ('orange', 'green', 'blue');
+    
+SELECT * FROM person
+	WHERE favoritecolor
+    IN ('yellow', 'purple');
